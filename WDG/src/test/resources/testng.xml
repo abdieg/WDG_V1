@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<!-- <suite name="Suite" parallel="false"> -->
+<!-- <suite name="Suite" parallel="tests" thread-count="4"> -->
+
+<!-- 	<parameter name="baseUrl" value="http://newtours.demoaut.com"/> -->
+
+<!-- 	<listeners> -->
+<!-- 		<listener class-name="org.webdriver.common.ScreenshotListener"/> -->
+<!-- 	</listeners> -->
+
+<!-- 	<test name="FirstTest"> -->
+<!-- 		<classes> -->
+<!-- 			<class name="org.webdriver.tests.FirstTest" /> -->
+<!-- 		</classes> -->
+<!-- 	</test> -->
+	
+<!-- 	<test name="SecondTest"> -->
+<!-- 		<classes> -->
+<!-- 			<class name="org.webdriver.tests.SecondTest" /> -->
+<!-- 		</classes> -->
+<!-- 	</test> -->
+	
+<!-- 	<test name="ThirdTest"> -->
+<!-- 		<classes> -->
+<!-- 			<class name="org.webdriver.tests.ThirdTest" /> -->
+<!-- 		</classes> -->
+<!-- 	</test> -->
+
+<!-- </suite> -->
+
+<suite name="AllSuites">
+
+	<listeners>
+		<listener class-name="org.webdriver.common.ScreenshotListener"/>
+	</listeners>
+
+	<suite-files>
+		<suite-file path="suite1.xml" />
+		<suite-file path="suite2.xml" />
+	</suite-files>
+	
+</suite>

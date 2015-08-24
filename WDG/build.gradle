@@ -1,0 +1,50 @@
+def properties = new Properties()
+file("src/test/resources/system.properties").withInputStream { properties.load(it) }
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+delete 'ScreenShots'
+new File("ScreenShots").mkdir()
+
+sourceCompatibility = 1.7
+version = '1.0'
+jar {
+    manifest {
+        attributes 'Implementation-Title': 'Gradle Quickstart',
+                   'Implementation-Version': version
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+	testCompile 'org.seleniumhq.selenium:selenium-java:2.47.1'
+	testCompile 'org.testng:testng:6.8'
+	
+    compile group: 'commons-collections', name: 'commons-collections', version: '3.2'
+    testCompile group: 'junit', name: 'junit', version: '4.+'
+    
+}
+
+uploadArchives {
+    repositories {
+       flatDir {
+           dirs 'repos'
+       }
+    }
+}
+
+test {
+
+	systemProperties = properties
+	
+	println "Running tests!"
+	println systemProperties['baseUrl']
+
+    useTestNG {
+        suites 'src/test/resources/testng.xml'
+    }
+}

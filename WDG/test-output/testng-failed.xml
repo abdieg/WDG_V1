@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [suite1]">
+  <parameter name="baseUrl" value="http://newtours.demoaut.com"/>
+  <listeners>
+    <listener class-name="org.webdriver.common.ScreenshotListener"/>
+  </listeners>
+  <test name="FirstTest(failed)">
+    <classes>
+      <class name="org.webdriver.tests.ThirdTest">
+        <methods>
+          <include name="setUpProperties"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- org.webdriver.tests.ThirdTest -->
+      <class name="org.webdriver.tests.SecondTest">
+        <methods>
+          <include name="tearDown"/>
+          <include name="setUpProperties"/>
+        </methods>
+      </class> <!-- org.webdriver.tests.SecondTest -->
+      <class name="org.webdriver.tests.FirstTest">
+        <methods>
+          <include name="tearDown"/>
+          <include name="setUpProperties"/>
+          <include name="verifyPageTitle2"/>
+          <include name="verifyPageTitle"/>
+        </methods>
+      </class> <!-- org.webdriver.tests.FirstTest -->
+    </classes>
+  </test> <!-- FirstTest(failed) -->
+</suite> <!-- Failed suite [suite1] -->

@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+  <title>TestNG reports</title>
+
+    <link type="text/css" href="testng-reports.css" rel="stylesheet" />  
+    <script type="text/javascript" src="jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="testng-reports.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type='text/javascript'>
+      google.load('visualization', '1', {packages:['table']});
+      google.setOnLoadCallback(drawTable);
+      var suiteTableInitFunctions = new Array();
+      var suiteTableData = new Array();
+    </script>
+    <!--
+      <script type="text/javascript" src="jquery-ui/js/jquery-ui-1.8.16.custom.min.js"></script>
+     -->
+  </head>
+
+  <body>
+    <div class="top-banner-root">
+      <span class="top-banner-title-font">Test results</span>
+      <br/>
+      <span class="top-banner-font-1">3 suites, 1 failed test</span>
+    </div> <!-- top-banner-root -->
+    <div class="navigator-root">
+      <div class="navigator-suite-header">
+        <span>All suites</span>
+        <a href="#" class="collapse-all-link" title="Collapse/expand all the suites">
+          <img class="collapse-all-icon" src="collapseall.gif">
+          </img> <!-- collapse-all-icon -->
+        </a> <!-- collapse-all-link -->
+      </div> <!-- navigator-suite-header -->
+      <div class="suite">
+        <div class="rounded-window">
+          <div class="suite-header light-rounded-window-top">
+            <a href="#" class="navigator-link" panel-name="suite-suite2">
+              <span class="suite-name border-passed">suite2</span>
+            </a> <!-- navigator-link -->
+          </div> <!-- suite-header light-rounded-window-top -->
+          <div class="navigator-suite-content">
+            <div class="suite-section-title">
+              <span>Info</span>
+            </div> <!-- suite-section-title -->
+            <div class="suite-section-content">
+              <ul>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="test-xml-suite2">
+                    <span>C:\Users\User\Documents\4THSOURCE\Projects\Selenium\WDG\src\test\resources\suite2.xml</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="testlist-suite2">
+                    <span class="test-stats">1 test</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="group-suite2">
+                    <span>0 groups</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="times-suite2">
+                    <span>Times</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="reporter-suite2">
+                    <span>Reporter output</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="ignored-methods-suite2">
+                    <span>Ignored methods</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="chronological-suite2">
+                    <span>Chronological view</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+              </ul>
+            </div> <!-- suite-section-content -->
+            <div class="result-section">
+              <div class="suite-section-title">
+                <span>Results</span>
+              </div> <!-- suite-section-title -->
+              <div class="suite-section-content">
+                <ul>
+                  <li>
+                    <span class="method-stats">3 methods,   3 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title passed">Passed methods</span>
+                    <span class="show-or-hide-methods passed">
+                      <a href="#" panel-name="suite-suite2" class="hide-methods passed suite-suite2"> (hide)</a> <!-- hide-methods passed suite-suite2 -->
+                      <a href="#" panel-name="suite-suite2" class="show-methods passed suite-suite2"> (show)</a> <!-- show-methods passed suite-suite2 -->
+                    </span>
+                    <div class="method-list-content passed suite-suite2">
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-suite2" title="org.webdriver.tests.FourthTest" hash-for-method="verifyPageXF">verifyPageXF</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-suite2" title="org.webdriver.tests.FourthTest" hash-for-method="verifyPageXF2">verifyPageXF2</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-suite2" title="org.webdriver.tests.FourthTest" hash-for-method="verifyPageXF3">verifyPageXF3</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content passed suite-suite2 -->
+                  </li>
+                </ul>
+              </div> <!-- suite-section-content -->
+            </div> <!-- result-section -->
+          </div> <!-- navigator-suite-content -->
+        </div> <!-- rounded-window -->
+      </div> <!-- suite -->
+      <div class="suite">
+        <div class="rounded-window">
+          <div class="suite-header light-rounded-window-top">
+            <a href="#" class="navigator-link" panel-name="suite-suite1">
+              <span class="suite-name border-failed">suite1</span>
+            </a> <!-- navigator-link -->
+          </div> <!-- suite-header light-rounded-window-top -->
+          <div class="navigator-suite-content">
+            <div class="suite-section-title">
+              <span>Info</span>
+            </div> <!-- suite-section-title -->
+            <div class="suite-section-content">
+              <ul>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="test-xml-suite1">
+                    <span>C:\Users\User\Documents\4THSOURCE\Projects\Selenium\WDG\src\test\resources\suite1.xml</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="testlist-suite1">
+                    <span class="test-stats">3 tests</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="group-suite1">
+                    <span>0 groups</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="times-suite1">
+                    <span>Times</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="reporter-suite1">
+                    <span>Reporter output</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="ignored-methods-suite1">
+                    <span>Ignored methods</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="chronological-suite1">
+                    <span>Chronological view</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+              </ul>
+            </div> <!-- suite-section-content -->
+            <div class="result-section">
+              <div class="suite-section-title">
+                <span>Results</span>
+              </div> <!-- suite-section-title -->
+              <div class="suite-section-content">
+                <ul>
+                  <li>
+                    <span class="method-stats">7 methods, 1 failed,   6 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-suite1" class="hide-methods failed suite-suite1"> (hide)</a> <!-- hide-methods failed suite-suite1 -->
+                      <a href="#" panel-name="suite-suite1" class="show-methods failed suite-suite1"> (show)</a> <!-- show-methods failed suite-suite1 -->
+                    </span>
+                    <div class="method-list-content failed suite-suite1">
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-suite1" title="org.webdriver.tests.FirstTest" hash-for-method="verifyPageTitle2">verifyPageTitle2</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-suite1 -->
+                  </li>
+                  <li>
+                    <span class="method-list-title passed">Passed methods</span>
+                    <span class="show-or-hide-methods passed">
+                      <a href="#" panel-name="suite-suite1" class="hide-methods passed suite-suite1"> (hide)</a> <!-- hide-methods passed suite-suite1 -->
+                      <a href="#" panel-name="suite-suite1" class="show-methods passed suite-suite1"> (show)</a> <!-- show-methods passed suite-suite1 -->
+                    </span>
+                    <div class="method-list-content passed suite-suite1">
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-suite1" title="org.webdriver.tests.ThirdTest" hash-for-method="verifyPageLEL">verifyPageLEL</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-suite1" title="org.webdriver.tests.ThirdTest" hash-for-method="verifyPageLEL2">verifyPageLEL2</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-suite1" title="org.webdriver.tests.FirstTest" hash-for-method="verifyPageTitle">verifyPageTitle</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-suite1" title="org.webdriver.tests.SecondTest" hash-for-method="verifyPageURL">verifyPageURL</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-suite1" title="org.webdriver.tests.SecondTest" hash-for-method="verifyPageURL2">verifyPageURL2</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-suite1" title="org.webdriver.tests.SecondTest" hash-for-method="verifyPageURL3">verifyPageURL3</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content passed suite-suite1 -->
+                  </li>
+                </ul>
+              </div> <!-- suite-section-content -->
+            </div> <!-- result-section -->
+          </div> <!-- navigator-suite-content -->
+        </div> <!-- rounded-window -->
+      </div> <!-- suite -->
+    </div> <!-- navigator-root -->
+    <div class="wrapper">
+      <div class="main-panel-root">
+        <div panel-name="suite-suite2" class="panel suite2">
+          <div class="suite-suite2-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">org.webdriver.tests.FourthTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="verifyPageXF">
+                  </a> <!-- verifyPageXF -->
+                  <span class="method-name">verifyPageXF</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="verifyPageXF2">
+                  </a> <!-- verifyPageXF2 -->
+                  <span class="method-name">verifyPageXF2</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="verifyPageXF3">
+                  </a> <!-- verifyPageXF3 -->
+                  <span class="method-name">verifyPageXF3</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-suite2-class-passed -->
+        </div> <!-- panel suite2 -->
+        <div panel-name="suite-suite1" class="panel suite1">
+          <div class="suite-suite1-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">org.webdriver.tests.FirstTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="verifyPageTitle2">
+                  </a> <!-- verifyPageTitle2 -->
+                  <span class="method-name">verifyPageTitle2</span>
+                  <div class="stack-trace"><b>"java.lang.AssertionError: null
+	at org.webdriver.tests.FirstTest.verifyPageTitle2(FirstTest.java:27)
+... Removed 28 stack frames<br/> java.lang.AssertionError: null
+	at org.testng.Assert.fail(Assert.java:94)
+	at org.testng.Assert.assertNotEquals(Assert.java:758)
+	at org.testng.Assert.assertNotEquals(Assert.java:763)
+	at org.webdriver.tests.FirstTest.verifyPageTitle2(FirstTest.java:27)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1194)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:111)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:204)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:175)
+"</b><br>org.testng.Assert.fail(Assert.java:94)<br>org.testng.Assert.assertNotEquals(Assert.java:758)<br>org.testng.Assert.assertNotEquals(Assert.java:763)<br>org.webdriver.tests.FirstTest.verifyPageTitle2(FirstTest.java:27)<br>sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br>sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)<br>sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)<br>java.lang.reflect.Method.invoke(Unknown Source)<br>org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)<br>org.testng.internal.Invoker.invokeMethod(Invoker.java:714)<br>org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)<br>org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)<br>org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)<br>org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)<br>org.testng.TestRunner.privateRun(TestRunner.java:767)<br>org.testng.TestRunner.run(TestRunner.java:617)<br>org.testng.SuiteRunner.runTest(SuiteRunner.java:334)<br>org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)<br>org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)<br>org.testng.SuiteRunner.run(SuiteRunner.java:240)<br>org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)<br>org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)<br>org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)<br>org.testng.TestNG.runSuitesSequentially(TestNG.java:1194)<br>org.testng.TestNG.runSuitesLocally(TestNG.java:1123)<br>org.testng.TestNG.run(TestNG.java:1031)<br>org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:111)<br>org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:204)<br>org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:175)<br>
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-suite1-class-failed -->
+          <div class="suite-suite1-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">org.webdriver.tests.ThirdTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="verifyPageLEL">
+                  </a> <!-- verifyPageLEL -->
+                  <span class="method-name">verifyPageLEL</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="verifyPageLEL2">
+                  </a> <!-- verifyPageLEL2 -->
+                  <span class="method-name">verifyPageLEL2</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-suite1-class-passed -->
+          <div class="suite-suite1-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">org.webdriver.tests.SecondTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="verifyPageURL">
+                  </a> <!-- verifyPageURL -->
+                  <span class="method-name">verifyPageURL</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="verifyPageURL2">
+                  </a> <!-- verifyPageURL2 -->
+                  <span class="method-name">verifyPageURL2</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="verifyPageURL3">
+                  </a> <!-- verifyPageURL3 -->
+                  <span class="method-name">verifyPageURL3</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-suite1-class-passed -->
+          <div class="suite-suite1-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">org.webdriver.tests.FirstTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="verifyPageTitle">
+                  </a> <!-- verifyPageTitle -->
+                  <span class="method-name">verifyPageTitle</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-suite1-class-passed -->
+        </div> <!-- panel suite1 -->
+        <div panel-name="suite-AllSuites" class="panel AllSuites">
+        </div> <!-- panel AllSuites -->
+        <div panel-name="test-xml-suite2" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">C:\Users\User\Documents\4THSOURCE\Projects\Selenium\WDG\src\test\resources\suite2.xml</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <pre>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
+&lt;suite name=&quot;suite2&quot;&gt;
+  &lt;parameter name=&quot;baseUrl&quot; value=&quot;http://newtours.demoaut.com&quot;/&gt;
+  &lt;test name=&quot;FourthTest&quot;&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;org.webdriver.tests.FourthTest&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- FourthTest --&gt;
+&lt;/suite&gt; &lt;!-- suite2 --&gt;
+            </pre>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="test-xml-suite1" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">C:\Users\User\Documents\4THSOURCE\Projects\Selenium\WDG\src\test\resources\suite1.xml</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <pre>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
+&lt;suite name=&quot;suite1&quot;&gt;
+  &lt;parameter name=&quot;baseUrl&quot; value=&quot;http://newtours.demoaut.com&quot;/&gt;
+  &lt;test name=&quot;FirstTest&quot;&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;org.webdriver.tests.FirstTest&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- FirstTest --&gt;
+  &lt;test name=&quot;SecondTest&quot;&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;org.webdriver.tests.SecondTest&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- SecondTest --&gt;
+  &lt;test name=&quot;ThirdTest&quot;&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;org.webdriver.tests.ThirdTest&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- ThirdTest --&gt;
+&lt;/suite&gt; &lt;!-- suite1 --&gt;
+            </pre>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="test-xml-AllSuites" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">C:\Users\User\Documents\4THSOURCE\Projects\Selenium\WDG\src\test\resources\testng.xml</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <pre>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
+&lt;suite name=&quot;AllSuites&quot;&gt;
+  &lt;parameter name=&quot;baseUrl&quot; value=&quot;http://newtours.demoaut.com&quot;/&gt;
+  &lt;listeners&gt;
+    &lt;listener class-name=&quot;org.webdriver.common.ScreenshotListener&quot;/&gt;
+  &lt;/listeners&gt;
+  &lt;suite-files&gt;
+    &lt;suite-file path=&quot;suite1.xml&quot;/&gt;
+    &lt;suite-file path=&quot;suite2.xml&quot;/&gt;
+  &lt;/suite-files&gt;
+&lt;/suite&gt; &lt;!-- AllSuites --&gt;
+            </pre>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="testlist-suite2" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Tests for suite2</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <ul>
+              <li>
+                <span class="test-name">FourthTest (1 class)</span>
+              </li>
+            </ul>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="testlist-suite1" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Tests for suite1</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <ul>
+              <li>
+                <span class="test-name">FirstTest (1 class)</span>
+              </li>
+              <li>
+                <span class="test-name">SecondTest (1 class)</span>
+              </li>
+              <li>
+                <span class="test-name">ThirdTest (1 class)</span>
+              </li>
+            </ul>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="testlist-AllSuites" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Tests for AllSuites</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <ul>
+            </ul>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="group-suite2" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Groups for suite2</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="group-suite1" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Groups for suite1</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="group-AllSuites" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Groups for AllSuites</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="times-suite2" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Times for suite2</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="times-div">
+              <script type="text/javascript">
+suiteTableInitFunctions.push('tableData_suite2');
+function tableData_suite2() {
+var data = new google.visualization.DataTable();
+data.addColumn('number', 'Number');
+data.addColumn('string', 'Method');
+data.addColumn('string', 'Class');
+data.addColumn('number', 'Time (ms)');
+data.addRows(3);
+data.setCell(0, 0, 0)
+data.setCell(0, 1, 'verifyPageXF')
+data.setCell(0, 2, 'org.webdriver.tests.FourthTest')
+data.setCell(0, 3, 5058);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'verifyPageXF3')
+data.setCell(1, 2, 'org.webdriver.tests.FourthTest')
+data.setCell(1, 3, 254);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'verifyPageXF2')
+data.setCell(2, 2, 'org.webdriver.tests.FourthTest')
+data.setCell(2, 3, 14);
+window.suiteTableData['suite2']= { tableData: data, tableDiv: 'times-div-suite2'}
+return data;
+}
+              </script>
+              <span class="suite-total-time">Total running time: 5 seconds</span>
+              <div id="times-div-suite2">
+              </div> <!-- times-div-suite2 -->
+            </div> <!-- times-div -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="times-suite1" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Times for suite1</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="times-div">
+              <script type="text/javascript">
+suiteTableInitFunctions.push('tableData_suite1');
+function tableData_suite1() {
+var data = new google.visualization.DataTable();
+data.addColumn('number', 'Number');
+data.addColumn('string', 'Method');
+data.addColumn('string', 'Class');
+data.addColumn('number', 'Time (ms)');
+data.addRows(7);
+data.setCell(0, 0, 0)
+data.setCell(0, 1, 'verifyPageURL')
+data.setCell(0, 2, 'org.webdriver.tests.SecondTest')
+data.setCell(0, 3, 5018);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'verifyPageTitle')
+data.setCell(1, 2, 'org.webdriver.tests.FirstTest')
+data.setCell(1, 3, 304);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'verifyPageLEL')
+data.setCell(2, 2, 'org.webdriver.tests.ThirdTest')
+data.setCell(2, 3, 224);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'verifyPageURL3')
+data.setCell(3, 2, 'org.webdriver.tests.SecondTest')
+data.setCell(3, 3, 196);
+data.setCell(4, 0, 4)
+data.setCell(4, 1, 'verifyPageTitle2')
+data.setCell(4, 2, 'org.webdriver.tests.FirstTest')
+data.setCell(4, 3, 22);
+data.setCell(5, 0, 5)
+data.setCell(5, 1, 'verifyPageURL2')
+data.setCell(5, 2, 'org.webdriver.tests.SecondTest')
+data.setCell(5, 3, 20);
+data.setCell(6, 0, 6)
+data.setCell(6, 1, 'verifyPageLEL2')
+data.setCell(6, 2, 'org.webdriver.tests.ThirdTest')
+data.setCell(6, 3, 14);
+window.suiteTableData['suite1']= { tableData: data, tableDiv: 'times-div-suite1'}
+return data;
+}
+              </script>
+              <span class="suite-total-time">Total running time: 5 seconds</span>
+              <div id="times-div-suite1">
+              </div> <!-- times-div-suite1 -->
+            </div> <!-- times-div -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="times-AllSuites" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Times for AllSuites</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="times-div">
+              <script type="text/javascript">
+suiteTableInitFunctions.push('tableData_AllSuites');
+function tableData_AllSuites() {
+var data = new google.visualization.DataTable();
+data.addColumn('number', 'Number');
+data.addColumn('string', 'Method');
+data.addColumn('string', 'Class');
+data.addColumn('number', 'Time (ms)');
+data.addRows(0);
+window.suiteTableData['AllSuites']= { tableData: data, tableDiv: 'times-div-AllSuites'}
+return data;
+}
+              </script>
+              <div id="times-div-AllSuites">
+              </div> <!-- times-div-AllSuites -->
+            </div> <!-- times-div -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="reporter-suite2" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Reporter output for suite2</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="reporter-method-div">
+              <span class="reporter-method-name">verifyPageXF</span>
+              <div class="reporter-method-output-div">
+                <span class="reporter-method-output"><a target="_blank" href=file:///C:\Users\User\Documents\4THSOURCE\Projects\Selenium\WDG\ScreenShots\Success\21_ago_2015_03_31_57_PM_org.webdriver.tests.FourthTest_verifyPageXF.png>Success! org.webdriver.tests.FourthTest > verifyPageXF</a></span>
+              </div> <!-- reporter-method-output-div -->
+            </div> <!-- reporter-method-div -->
+            <div class="reporter-method-div">
+              <span class="reporter-method-name">verifyPageXF3</span>
+              <div class="reporter-method-output-div">
+                <span class="reporter-method-output"><a target="_blank" href=file:///C:\Users\User\Documents\4THSOURCE\Projects\Selenium\WDG\ScreenShots\Success\21_ago_2015_03_31_57_PM_org.webdriver.tests.FourthTest_verifyPageXF3.png>Success! org.webdriver.tests.FourthTest > verifyPageXF3</a></span>
+              </div> <!-- reporter-method-output-div -->
+            </div> <!-- reporter-method-div -->
+            <div class="reporter-method-div">
+              <span class="reporter-method-name">verifyPageXF2</span>
+              <div class="reporter-method-output-div">
+                <span class="reporter-method-output"><a target="_blank" href=file:///C:\Users\User\Documents\4THSOURCE\Projects\Selenium\WDG\ScreenShots\Success\21_ago_2015_03_31_57_PM_org.webdriver.tests.FourthTest_verifyPageXF2.png>Success! org.webdriver.tests.FourthTest > verifyPageXF2</a></span>
+              </div> <!-- reporter-method-output-div -->
+            </div> <!-- reporter-method-div -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="reporter-suite1" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Reporter output for suite1</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="reporter-method-div">
+              <span class="reporter-method-name">verifyPageTitle</span>
+              <div class="reporter-method-output-div">
+                <span class="reporter-method-output"><a target="_blank" href=file:///C:\Users\User\Documents\4THSOURCE\Projects\Selenium\WDG\ScreenShots\Success\21_ago_2015_03_31_22_PM_org.webdriver.tests.FirstTest_verifyPageTitle.png>Success! org.webdriver.tests.FirstTest > verifyPageTitle</a></span>
+              </div> <!-- reporter-method-output-div -->
+            </div> <!-- reporter-method-div -->
+            <div class="reporter-method-div">
+              <span class="reporter-method-name">verifyPageTitle2</span>
+              <div class="reporter-method-output-div">
+                <span class="reporter-method-output"><a target="_blank" href=file:///C:\Users\User\Documents\4THSOURCE\Projects\Selenium\WDG\ScreenShots\Failed\21_ago_2015_03_31_23_PM_org.webdriver.tests.FirstTest_verifyPageTitle2.png>Failed! org.webdriver.tests.FirstTest > verifyPageTitle2</a></span>
+              </div> <!-- reporter-method-output-div -->
+            </div> <!-- reporter-method-div -->
+            <div class="reporter-method-div">
+              <span class="reporter-method-name">verifyPageURL</span>
+              <div class="reporter-method-output-div">
+                <span class="reporter-method-output"><a target="_blank" href=file:///C:\Users\User\Documents\4THSOURCE\Projects\Selenium\WDG\ScreenShots\Success\21_ago_2015_03_31_36_PM_org.webdriver.tests.SecondTest_verifyPageURL.png>Success! org.webdriver.tests.SecondTest > verifyPageURL</a></span>
+              </div> <!-- reporter-method-output-div -->
+            </div> <!-- reporter-method-div -->
+            <div class="reporter-method-div">
+              <span class="reporter-method-name">verifyPageURL2</span>
+              <div class="reporter-method-output-div">
+                <span class="reporter-method-output"><a target="_blank" href=file:///C:\Users\User\Documents\4THSOURCE\Projects\Selenium\WDG\ScreenShots\Success\21_ago_2015_03_31_36_PM_org.webdriver.tests.SecondTest_verifyPageURL2.png>Success! org.webdriver.tests.SecondTest > verifyPageURL2</a></span>
+              </div> <!-- reporter-method-output-div -->
+            </div> <!-- reporter-method-div -->
+            <div class="reporter-method-div">
+              <span class="reporter-method-name">verifyPageURL3</span>
+              <div class="reporter-method-output-div">
+                <span class="reporter-method-output"><a target="_blank" href=file:///C:\Users\User\Documents\4THSOURCE\Projects\Selenium\WDG\ScreenShots\Success\21_ago_2015_03_31_36_PM_org.webdriver.tests.SecondTest_verifyPageURL3.png>Success! org.webdriver.tests.SecondTest > verifyPageURL3</a></span>
+              </div> <!-- reporter-method-output-div -->
+            </div> <!-- reporter-method-div -->
+            <div class="reporter-method-div">
+              <span class="reporter-method-name">verifyPageLEL2</span>
+              <div class="reporter-method-output-div">
+                <span class="reporter-method-output"><a target="_blank" href=file:///C:\Users\User\Documents\4THSOURCE\Projects\Selenium\WDG\ScreenShots\Success\21_ago_2015_03_31_44_PM_org.webdriver.tests.ThirdTest_verifyPageLEL2.png>Success! org.webdriver.tests.ThirdTest > verifyPageLEL2</a></span>
+              </div> <!-- reporter-method-output-div -->
+            </div> <!-- reporter-method-div -->
+            <div class="reporter-method-div">
+              <span class="reporter-method-name">verifyPageLEL</span>
+              <div class="reporter-method-output-div">
+                <span class="reporter-method-output"><a target="_blank" href=file:///C:\Users\User\Documents\4THSOURCE\Projects\Selenium\WDG\ScreenShots\Success\21_ago_2015_03_31_44_PM_org.webdriver.tests.ThirdTest_verifyPageLEL.png>Success! org.webdriver.tests.ThirdTest > verifyPageLEL</a></span>
+              </div> <!-- reporter-method-output-div -->
+            </div> <!-- reporter-method-div -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="reporter-AllSuites" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Reporter output for AllSuites</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="ignored-methods-suite2" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">0 ignored methods</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="ignored-methods-suite1" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">0 ignored methods</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="ignored-methods-AllSuites" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">0 ignored methods</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="chronological-suite2" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Methods in chronological order</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="chronological-class">
+              <div class="chronological-class-name">org.webdriver.tests.FirstTest</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">setUpProperties(http://newtours.demoaut.com)</span>
+                <span class="method-start">0 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="test-method">
+                <span class="method-name">verifyPageTitle</span>
+                <span class="method-start">9007 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">verifyPageTitle2</span>
+                <span class="method-start">9547 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-class after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">9742 ms</span>
+              </div> <!-- configuration-class after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">org.webdriver.tests.SecondTest</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">setUpProperties(http://newtours.demoaut.com)</span>
+                <span class="method-start">10476 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="test-method">
+                <span class="method-name">verifyPageURL</span>
+                <span class="method-start">17496 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">verifyPageURL2</span>
+                <span class="method-start">22799 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">verifyPageURL3</span>
+                <span class="method-start">23029 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-class after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">23411 ms</span>
+              </div> <!-- configuration-class after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">org.webdriver.tests.ThirdTest</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">setUpProperties(http://newtours.demoaut.com)</span>
+                <span class="method-start">23830 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="test-method">
+                <span class="method-name">verifyPageLEL</span>
+                <span class="method-start">30515 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">verifyPageLEL2</span>
+                <span class="method-start">30922 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-class after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">31096 ms</span>
+              </div> <!-- configuration-class after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">org.webdriver.tests.FourthTest</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">setUpProperties(http://newtours.demoaut.com)</span>
+                <span class="method-start">31672 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="test-method">
+                <span class="method-name">verifyPageXF</span>
+                <span class="method-start">38662 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">verifyPageXF2</span>
+                <span class="method-start">43903 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">verifyPageXF3</span>
+                <span class="method-start">44080 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-class after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">44544 ms</span>
+              </div> <!-- configuration-class after -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="chronological-suite1" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Methods in chronological order</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="chronological-class">
+              <div class="chronological-class-name">org.webdriver.tests.FirstTest</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">setUpProperties(http://newtours.demoaut.com)</span>
+                <span class="method-start">0 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="test-method">
+                <span class="method-name">verifyPageTitle</span>
+                <span class="method-start">9007 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">verifyPageTitle2</span>
+                <span class="method-start">9547 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-class after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">9742 ms</span>
+              </div> <!-- configuration-class after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">org.webdriver.tests.SecondTest</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">setUpProperties(http://newtours.demoaut.com)</span>
+                <span class="method-start">10476 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="test-method">
+                <span class="method-name">verifyPageURL</span>
+                <span class="method-start">17496 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">verifyPageURL2</span>
+                <span class="method-start">22799 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">verifyPageURL3</span>
+                <span class="method-start">23029 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-class after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">23411 ms</span>
+              </div> <!-- configuration-class after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">org.webdriver.tests.ThirdTest</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">setUpProperties(http://newtours.demoaut.com)</span>
+                <span class="method-start">23830 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="test-method">
+                <span class="method-name">verifyPageLEL</span>
+                <span class="method-start">30515 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">verifyPageLEL2</span>
+                <span class="method-start">30922 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-class after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">31096 ms</span>
+              </div> <!-- configuration-class after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">org.webdriver.tests.FourthTest</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">setUpProperties(http://newtours.demoaut.com)</span>
+                <span class="method-start">31672 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="test-method">
+                <span class="method-name">verifyPageXF</span>
+                <span class="method-start">38662 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">verifyPageXF2</span>
+                <span class="method-start">43903 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">verifyPageXF3</span>
+                <span class="method-start">44080 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-class after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">44544 ms</span>
+              </div> <!-- configuration-class after -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="chronological-AllSuites" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Methods in chronological order</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="chronological-class">
+              <div class="chronological-class-name">org.webdriver.tests.FirstTest</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">setUpProperties(http://newtours.demoaut.com)</span>
+                <span class="method-start">0 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="test-method">
+                <span class="method-name">verifyPageTitle</span>
+                <span class="method-start">9007 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">verifyPageTitle2</span>
+                <span class="method-start">9547 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-class after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">9742 ms</span>
+              </div> <!-- configuration-class after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">org.webdriver.tests.SecondTest</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">setUpProperties(http://newtours.demoaut.com)</span>
+                <span class="method-start">10476 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="test-method">
+                <span class="method-name">verifyPageURL</span>
+                <span class="method-start">17496 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">verifyPageURL2</span>
+                <span class="method-start">22799 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">verifyPageURL3</span>
+                <span class="method-start">23029 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-class after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">23411 ms</span>
+              </div> <!-- configuration-class after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">org.webdriver.tests.ThirdTest</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">setUpProperties(http://newtours.demoaut.com)</span>
+                <span class="method-start">23830 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="test-method">
+                <span class="method-name">verifyPageLEL</span>
+                <span class="method-start">30515 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">verifyPageLEL2</span>
+                <span class="method-start">30922 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-class after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">31096 ms</span>
+              </div> <!-- configuration-class after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">org.webdriver.tests.FourthTest</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">setUpProperties(http://newtours.demoaut.com)</span>
+                <span class="method-start">31672 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="test-method">
+                <span class="method-name">verifyPageXF</span>
+                <span class="method-start">38662 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">verifyPageXF2</span>
+                <span class="method-start">43903 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">verifyPageXF3</span>
+                <span class="method-start">44080 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-class after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">44544 ms</span>
+              </div> <!-- configuration-class after -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+      </div> <!-- main-panel-root -->
+    </div> <!-- wrapper -->
+  </body>
+</html>
