@@ -47,4 +47,8 @@ test {
     useTestNG {
         suites 'src/test/resources/testng.xml'
     }
+    
+    options {
+    	listeners << 'org.webdriver.common.ScreenshotListener'
+    }
 }
