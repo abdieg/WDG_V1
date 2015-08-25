@@ -44,6 +44,8 @@ test {
 	println "--CHECKING GRADLE!"
 	println "--URL: " + systemProperties['baseUrl']
 	println "--BROWSER: " + systemProperties['browser']
+	println "--MACHINE: " + systemProperties['address']
+	println "--PORT: " + systemProperties['port']
 
     useTestNG {
     	println "--RUNNING TESTS!"

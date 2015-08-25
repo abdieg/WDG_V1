@@ -16,12 +16,18 @@ public class WebDriverTestParameters extends WebDriverTest {
 		super();
 	}
 	
+	/**
+	 * Gets the parameters and gives them to WebDriverTest
+	 */
 	@BeforeClass
-	@Parameters ({ "baseUrl", "browser" })
-	public void setUpProperties(String baseUrl, String browser) throws Exception {
-		super.setUpProperties(baseUrl, browser);
+	@Parameters ({ "baseUrl", "browser", "address", "port" })
+	public void setUpProperties(String baseUrl, String browser, String address, int port) throws Exception {
+		super.setUpProperties(baseUrl, browser, address, port);
 	}
 	
+	/**
+	 * Finish WebDriver session
+	 */
 	@AfterClass(alwaysRun = true)
 	public void tearDown() throws Exception {
 		stdout.println("Quitting webdriver from WebDriverTestParameters class");
