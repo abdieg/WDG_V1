@@ -4,6 +4,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class WebDriverTest {
@@ -19,8 +20,18 @@ public class WebDriverTest {
 		return driver;
 	}
 	
-	public void setUpProperties(String baseUrl) throws Exception {
-		multipleTest(baseUrl);
+	public void setUpProperties(String baseUrl, String browser) throws Exception {		
+		if (browser.contains("firefox")) {
+			WebDriverThread.startWebDriverSession(new FirefoxDriver(), baseUrl);
+		}
+		else if (browser.contains("chrome")) {
+			System.setProperty("webdriver.chrome.driver", browser);
+			WebDriverThread.startWebDriverSession(new ChromeDriver(), baseUrl);
+		}
+		driver = WebDriverThread.session();
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(500, TimeUnit.SECONDS);
+		common = new common(driver);
 	}
 	
 	public void tearDown() throws Exception {
@@ -35,20 +46,21 @@ public class WebDriverTest {
 	    }
 	}
 	
-	public void simpleTest(String baseUrl) {
-		driver = new FirefoxDriver();
-		driver.get(baseUrl);
-		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		common = new common(driver);
-	}
+//	public void simpleTest(String baseUrl) {
+//		driver = new FirefoxDriver();
+////		driver = new ChromeDriver();
+//		driver.get(baseUrl);
+//		driver.manage().window().maximize();
+//		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+//		common = new common(driver);
+//	}
 	
-	public void multipleTest(String baseUrl) throws Exception {
-		WebDriverThread.startWebDriverSession(new FirefoxDriver(), baseUrl);
-		driver = WebDriverThread.session();
-		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(500, TimeUnit.SECONDS);
-		common = new common(driver);
-	}
+////System.setProperty("webdriver.chrome.driver", "C:\\Program Files (x86)\\ChromeDriver\\chromedriver.exe");
+////WebDriverThread.startWebDriverSession(new ChromeDriver(), baseUrl);
+//WebDriverThread.startWebDriverSession(new FirefoxDriver(), baseUrl);
+//driver = WebDriverThread.session();
+//driver.manage().window().maximize();
+//driver.manage().timeouts().implicitlyWait(500, TimeUnit.SECONDS);
+//common = new common(driver);
 	
 }

@@ -41,14 +41,20 @@ test {
 
 	systemProperties = properties
 	
-	println "Running tests!"
-	println systemProperties['baseUrl']
+	println "--CHECKING GRADLE!"
+	println "--URL: " + systemProperties['baseUrl']
+	println "--BROWSER: " + systemProperties['browser']
 
     useTestNG {
+    	println "--RUNNING TESTS!"
         suites 'src/test/resources/testng.xml'
     }
     
     options {
     	listeners << 'org.webdriver.common.ScreenshotListener'
     }
+    
+    reports {
+		html.enabled = true
+	}
 }

@@ -17,9 +17,9 @@ public class WebDriverTestParameters extends WebDriverTest {
 	}
 	
 	@BeforeClass
-	@Parameters ({ "baseUrl" })
-	public void setUpProperties(String baseUrl) throws Exception {
-		super.setUpProperties(baseUrl);
+	@Parameters ({ "baseUrl", "browser" })
+	public void setUpProperties(String baseUrl, String browser) throws Exception {
+		super.setUpProperties(baseUrl, browser);
 	}
 	
 	@AfterClass(alwaysRun = true)
