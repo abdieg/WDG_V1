@@ -11,7 +11,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 public class WebDriverTest {
 
 	public static WebDriver driver;;
-	public common common;
+	public Common common;
 	
 	public WebDriverTest() {
 		
@@ -48,7 +48,7 @@ public class WebDriverTest {
 		driver = WebDriverThread.session();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(500, TimeUnit.SECONDS);
-		common = new common(driver);
+		common = new Common(driver);
 	}
 	
 	/**
@@ -68,7 +68,7 @@ public class WebDriverTest {
 		driver = WebDriverThread.session();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(500, TimeUnit.SECONDS);
-		common = new common(driver);
+		common = new Common(driver);
 	}
 	
 	/**
@@ -86,14 +86,4 @@ public class WebDriverTest {
 	        }
 	    }
 	}
-	
-//	public void simpleTest(String baseUrl) {
-//		driver = new FirefoxDriver();
-////		driver = new ChromeDriver();
-//		driver.get(baseUrl);
-//		driver.manage().window().maximize();
-//		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-//		common = new common(driver);
-//	}
-	
 }

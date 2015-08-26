@@ -42,5 +42,4 @@ public class WebDriverThread {
 	public static void resetSession() {
 		threadLocalSelenium.set(null);
 	}
-
 }

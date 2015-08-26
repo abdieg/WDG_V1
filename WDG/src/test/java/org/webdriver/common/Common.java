@@ -18,11 +18,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 //import org.stjude.srm2qa.util.TestProperties;
 import org.testng.Assert;
 
-public class common {
+public class Common {
 	private WebDriver webDriver;
 	private PrintStream stdout = new PrintStream(new FileOutputStream(FileDescriptor.out));
 	
-	public common(WebDriver webDriver) {
+	public Common(WebDriver webDriver) {
 		this.webDriver = webDriver;
 	}
 	
@@ -45,34 +45,26 @@ public class common {
 	
 	/**
 	 * Will try to find the WebElement within 30 seconds.
-	 * If the WebElement is not found within 30 seconds, a
-	 * TimeoutException will be thrown. Once found thread will 
-	 * sleep for milliseconds specified in variable 'timeToWaitAfterElementFound'
-	 * to give some time for browser to bind event listeners to the element (if there
-	 * happened to be one)
-	 * 
+	 * If the WebElement is not found within 30 seconds, a TimeoutException will be thrown. 
+	 * Once found thread will sleep for milliseconds specified in variable 'timeToWaitAfterElementFound'
+	 * to give some time for browser to bind event listeners to the element (if there happened to be one)
 	 * @param by The locating mechanism
 	 * @return The first matching element on the current page
 	 * @throws TimeoutException If no matching elements are found
 	 */
-	
 	public WebElement patientlyFindElement(final By by) {
 		return patientlyFindElement(by, 30);
 	}
 	
 	/**
-	 * Will try to find the WebElement within seconds specified in 'waitFor'.
-	 * If the WebElement is not found within 'waitFor' seconds, a
-	 * TimeoutException will be thrown. Once found thread will 
-	 * sleep for milliseconds specified in variable 'timeToWaitAfterElementFound'
-	 * to give some time for browser to bind event listeners to the element (if there
-	 * happened to be one)
-	 * 
+	 * Will try to find the WebElement within 30 seconds.
+	 * If the WebElement is not found within 30 seconds, a TimeoutException will be thrown. 
+	 * Once found thread will sleep for milliseconds specified in variable 'timeToWaitAfterElementFound'
+	 * to give some time for browser to bind event listeners to the element (if there happened to be one)
 	 * @param by The locating mechanism
 	 * @return The first matching element on the current page
 	 * @throws TimeoutException If no matching elements are found
 	 */
-	
 	public WebElement patientlyFindElement(final By by, int waitFor) {
 		WebDriverWait wait = new WebDriverWait(webDriver, waitFor);
 		return wait.until(new ExpectedCondition<WebElement>() {
@@ -86,8 +78,9 @@ public class common {
 	}
 	
 	/**
-	 * Checking an element is visible and enabled so that you
-	 * can click it.
+	 * Wait for an element to be clickable
+	 * @param by
+	 * @return
 	 */
 	public WebElement waitForElementToBeClickable(By by) {
 		WebDriverWait wait = new WebDriverWait(webDriver, 10);
@@ -95,18 +88,28 @@ public class common {
 		return element;
 	}
 	
+	/**
+	 * Wait for an element to be hidden
+	 * @param by
+	 */
 	public void waitForElementToBeHidden(By by) {
 		WebDriverWait wait = new WebDriverWait(webDriver, 10);
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(by));
 	}
 	
+	/**
+	 * Wait for an element to be visible
+	 * @param by
+	 */
 	public void waitForElementToBeVisible(By by) {
 		WebDriverWait wait = new WebDriverWait(webDriver, 10);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(by));
 	}
 	
 	/**
-	 * Checking for an option on a select element.
+	 * Wait for dropdown menu to be populated
+	 * @param by
+	 * @param selectValue
 	 */
 	@SuppressWarnings("deprecation")
 	public void waitForSelectOptionsToBePopulated(By by, String selectValue) {
@@ -126,12 +129,16 @@ public class common {
 	}
 	
 	/**
-	 * waits for Spinner to finish
+	 * Waits for spinner to finish
 	 */
 	public void waitForProcessToComplete() {
 		waitForProcessToComplete(10);
 	}
 	
+	/**
+	 * Main method for spinner
+	 * @param timeoutInSeconds
+	 */
 	public void waitForProcessToComplete(int timeoutInSeconds) {
 		final int FREQUENCY = 2;
 		double seconds = 0;
@@ -146,11 +153,20 @@ public class common {
 		Assert.fail("Ajax request did not complete within " + timeoutInSeconds + " seconds.");
 	}
 	
+	/**
+	 * Sleeps for the given amount of time and shows a message
+	 * @param millis
+	 * @param message
+	 */
 	public void sleep(int millis, String message) {
 		stdout.println(message);
 		sleep(millis);
 	}
 
+	/**
+	 * Sleeps for the given amount of time
+	 * @param millis
+	 */
 	public void sleep(int millis) {
 		try {
 			Thread.sleep(millis);
@@ -160,8 +176,8 @@ public class common {
 	}
 	
 	/**
-	 * To click button or hyper link on the page
-	 * @param locating mechanism
+	 * Clicks an element on the page
+	 * @param by
 	 */
 	public void click(By by) {
 		webDriver.findElement(by).click();
@@ -169,7 +185,7 @@ public class common {
 	}
 	
 	/**
-	 * finding out if text is present on current web page
+	 * Find if text is present on current web page
 	 * @param text
 	 * @return
 	 */
@@ -184,19 +200,19 @@ public class common {
 	}
 	
 	/**
-	 * This method will retrieve value from table cell 
-	 * @param header - Column Heading
-	 * @param row - row from which you want to read value
-	 * @return String
+	 * This method will retrieve value from table cell
+	 * @param header
+	 * @param row
+	 * @return
 	 */
 	public String getCellValue(String header, int row) {
 		return getCellValue("//table", header, row);
 	}
 	
 	/**
-	 * finds total number of rows
-	 * @param locating mechanism
-	 * @return number of rows
+	 * Finds total number of rows in table
+	 * @param by
+	 * @return
 	 */
 	public int getTableRowCount(By by) {
 		List<WebElement> rows = webDriver.findElements(by);
@@ -212,17 +228,26 @@ public class common {
 	    }
 	}
 	
+	/**
+	 * Selects a value in a dropdown
+	 * @param elementName
+	 * @param value
+	 */
 	public void selectValueInDropDown(final String elementName, final String value) {
 		Select selectElement = new Select(patientlyFindElement(By.xpath("//select[@name='"+elementName+"']")));
 		selectElement.selectByVisibleText(value);
 	}
-		
+	
+	/**
+	 * Prints something on the console
+	 * @param string
+	 */
 	public void print(String string) {
 		stdout.println(string);
 	}
 	
 	/**
-	 * finding out if link is present on current web page
+	 * Find if link is present con the current page
 	 * @param textLink
 	 * @return
 	 */
@@ -236,7 +261,7 @@ public class common {
 		
 	/**
 	 * This method is to close the Browser Generated Alerts
-	 * As there is no clean way assert the alert text closing the alert through script.
+	 * As there is no clean way assert the alert text closing the alert through script
 	 * In order to know there is an alert or not returning the true or false for the alert existence and Asserting the returned value
 	 * @return boolean
 	 */
@@ -260,7 +285,7 @@ public class common {
 	}
 	
 	/**
-	 * Check for Element Existence in the page
+	 * Check for element existence in the page
 	 * @param by
 	 * @return
 	 */
@@ -275,7 +300,7 @@ public class common {
 	/**
 	 * This method return the list of options available for the listbox based on the elementId
 	 * @param elementId
-	 * @return options list
+	 * @return
 	 */
 	public List<String> getSelectOptionsById(String elementId) {
 		WebElement select = patientlyFindElement(By.id(elementId));
@@ -292,9 +317,9 @@ public class common {
 	 * @param elementId
 	 * @param value
 	 */
-	public void clearAndSendKeysByElementId(String elementId, String value) {
-		patientlyFindElement(By.id(elementId)).clear();
-		patientlyFindElement(By.id(elementId)).sendKeys(value);
+	public void clearAndSendKeysByElementId(String element, String value) {
+		patientlyFindElement(By.id(element)).clear();
+		patientlyFindElement(By.id(element)).sendKeys(value);
 	}
 	
 	/**
@@ -302,13 +327,23 @@ public class common {
 	 * @param elementId
 	 * @param value
 	 */
-	public void clearAndSendKeysByElementName(String elementId, String value) {
-		patientlyFindElement(By.name(elementId)).clear();
-		patientlyFindElement(By.name(elementId)).sendKeys(value);
+	public void clearAndSendKeysByElementName(String element, String value) {
+		patientlyFindElement(By.name(element)).clear();
+		patientlyFindElement(By.name(element)).sendKeys(value);
 	}
 	
 	/**
-	 * method to close the alert and get the text
+	 * Method to clear and set value by Xpath
+	 * @param element
+	 * @param value
+	 */
+	public void clearAndSendKeysByElemenXpath(String element, String value) {
+		patientlyFindElement(By.xpath(element)).clear();
+		patientlyFindElement(By.xpath(element)).sendKeys(value);
+	}
+	
+	/**
+	 * Method to close the alert and get the text
 	 * @return
 	 */
 	public String closeAlertAndGetItsText() {
@@ -319,16 +354,16 @@ public class common {
 	}	
 	
 	/**
-	 * finds total number of rows
-	 * @param locating mechanism
-	 * @return number of rows
+	 * Gets all the rows on a given table
+	 * @param by
+	 * @return
 	 */
 	public List<WebElement> getTableRows(By by) {
 		return webDriver.findElements(by);
 	}
 	
 	/**
-	 * method to return column index of a header title
+	 * Method to return column index of a header title
 	 * @param xpath
 	 * @param header
 	 * @return
@@ -385,7 +420,6 @@ public class common {
 	public void goToFrame(String xpath) {
 		webDriver.switchTo().frame(webDriver.findElement(By.xpath(xpath)));
 	}
-	
 	
 	public void closePopupReturnToDefaultFrame() {
 		webDriver.switchTo().defaultContent();
