@@ -26,8 +26,24 @@ public class Common {
 		this.webDriver = webDriver;
 	}
 	
+	/**
+	 * Go to Main Page on project
+	 * @param baseUrl
+	 */
+	public void goToMainPage(String baseUrl) {
+		webDriver.get(baseUrl);
+	}
+	
+	/**
+	 * Go to specific URL
+	 * @param url
+	 */
+	public void goToPage(String url) {
+		webDriver.get(url);
+	}
+	
 //	/**
-//	 * will login using test credentials
+//	 * Will login using test credentials
 //	 * @param webDriver
 //	 * @throws Exception
 //	 */

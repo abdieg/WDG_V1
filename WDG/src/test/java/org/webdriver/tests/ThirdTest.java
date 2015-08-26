@@ -1,30 +1,26 @@
 package org.webdriver.tests;
 
-import org.openqa.selenium.By;
-import org.testng.Assert;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
-import org.webdriver.common.WebDriverTestParameters;
+import org.webdriver.common.WebDriverIndividual;
 
-public class ThirdTest extends WebDriverTestParameters {
-	
-	@AfterClass
-	public void tearDown() throws Exception {
-		driver.quit();
-	}
+public class ThirdTest extends WebDriverIndividual {
 	
 	@Test
-	public void verifyPageLEL() {
-		common.waitForElementToBeVisible(By.xpath("//img[@alt='Mercury Tours']"));
-		Assert.assertTrue(common.isElementPresent(By.xpath("//img[@alt='Mercury Tours']")));
-		Assert.assertTrue(common.isLinkPresent("SIGN-ON"));
-	}
-	
-	@Test (dependsOnMethods={"verifyPageLEL"})
-	public void verifyPageLEL2() {
-		String expectedTitle = "Welcome: Mercury Tours";
-		String actualTitle = driver.getTitle();
-		Assert.assertEquals(actualTitle, expectedTitle);
-	}
+    public void testMethod1() throws InterruptedException {
+		common.goToPage("https://www.medium.com");
+		Thread.sleep(5000);
+    }
+ 
+    @Test (dependsOnMethods={"testMethod1"})
+    public void testMethod2() throws InterruptedException {
+    	driver.get("http://e-quallity.net/");
+    	Thread.sleep(5000);
+    }
+    
+    @Test (dependsOnMethods={"testMethod2"})
+    public void testMethod3() throws InterruptedException {
+    	driver.get("http://www.heidoc.net/joomla/");
+    	Thread.sleep(5000);
+    }
   
 }

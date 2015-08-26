@@ -7,7 +7,7 @@ apply plugin: 'eclipse'
 delete 'ScreenShots'
 new File("ScreenShots").mkdir()
 
-sourceCompatibility = 1.7
+sourceCompatibility = 1.8
 version = '1.0'
 jar {
     manifest {
@@ -40,10 +40,10 @@ test {
 	systemProperties = properties
 	
 	println "--CHECKING GRADLE!"
-	println "--URL: " + systemProperties['baseUrl']
+	println "--URL: " + systemProperties['app-host']
 	println "--BROWSER: " + systemProperties['browser']
-	println "--MACHINE: " + systemProperties['address']
-	println "--PORT: " + systemProperties['port']
+	println "--MACHINE: " + systemProperties['selenium-host']
+	println "--PORT: " + systemProperties['selenium-port']
 
     useTestNG {
     	println "--RUNNING TESTS!"
@@ -51,7 +51,7 @@ test {
     }
     
     options {
-    	listeners << 'org.webdriver.common.ScreenshotListener'
+    	//listeners << 'org.webdriver.common.ScreenshotListener'
     }
     
     reports {
