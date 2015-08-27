@@ -1,32 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [suite1]">
-  <parameter name="baseUrl" value="http://newtours.demoaut.com"/>
-  <listeners>
-    <listener class-name="org.webdriver.common.ScreenshotListener"/>
-  </listeners>
-  <test name="FirstTest(failed)">
+<suite thread-count="1" name="Failed suite [Suite]" parallel="tests">
+  <test name="FirstTest(failed)" parallel="tests">
     <classes>
+      <class name="org.webdriver.tests.FirstTest">
+        <methods>
+          <include name="tearDown"/>
+          <include name="verifyPageTitle2"/>
+          <include name="verifyPageTitle"/>
+        </methods>
+      </class> <!-- org.webdriver.tests.FirstTest -->
       <class name="org.webdriver.tests.ThirdTest">
         <methods>
-          <include name="setUpProperties"/>
           <include name="tearDown"/>
         </methods>
       </class> <!-- org.webdriver.tests.ThirdTest -->
       <class name="org.webdriver.tests.SecondTest">
         <methods>
           <include name="tearDown"/>
-          <include name="setUpProperties"/>
         </methods>
       </class> <!-- org.webdriver.tests.SecondTest -->
+    </classes>
+  </test> <!-- FirstTest(failed) -->
+  <test name="SecondTest(failed)" parallel="tests">
+    <classes>
       <class name="org.webdriver.tests.FirstTest">
         <methods>
           <include name="tearDown"/>
-          <include name="setUpProperties"/>
-          <include name="verifyPageTitle2"/>
-          <include name="verifyPageTitle"/>
         </methods>
       </class> <!-- org.webdriver.tests.FirstTest -->
+      <class name="org.webdriver.tests.ThirdTest">
+        <methods>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- org.webdriver.tests.ThirdTest -->
+      <class name="org.webdriver.tests.SecondTest">
+        <methods>
+          <include name="tearDown"/>
+          <include name="verifyPageURL2"/>
+          <include name="verifyPageURL3"/>
+          <include name="verifyPageURL"/>
+        </methods>
+      </class> <!-- org.webdriver.tests.SecondTest -->
     </classes>
-  </test> <!-- FirstTest(failed) -->
-</suite> <!-- Failed suite [suite1] -->
+  </test> <!-- SecondTest(failed) -->
+  <test name="ThirdTest(failed)" parallel="tests">
+    <classes>
+      <class name="org.webdriver.tests.FirstTest">
+        <methods>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- org.webdriver.tests.FirstTest -->
+      <class name="org.webdriver.tests.ThirdTest">
+        <methods>
+          <include name="tearDown"/>
+          <include name="verifyPageLEL"/>
+          <include name="verifyPageLEL2"/>
+        </methods>
+      </class> <!-- org.webdriver.tests.ThirdTest -->
+      <class name="org.webdriver.tests.SecondTest">
+        <methods>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- org.webdriver.tests.SecondTest -->
+    </classes>
+  </test> <!-- ThirdTest(failed) -->
+</suite> <!-- Failed suite [Suite] -->

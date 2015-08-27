@@ -1,5 +1,6 @@
 package org.webdriver.tests;
 
+import org.junit.Assert;
 import org.testng.annotations.Test;
 import org.webdriver.common.WebDriverIndividual;
 
@@ -8,6 +9,7 @@ public class FirstTest extends WebDriverIndividual {
 	@Test
     public void testMethod1() throws InterruptedException {
 		common.goToPage("http://www.hardwaremx.com");
+		common.print("STDOUT");
 		Thread.sleep(5000);
     }
  
@@ -15,6 +17,7 @@ public class FirstTest extends WebDriverIndividual {
     public void testMethod2() throws InterruptedException {
     	driver.get("https://www.grammarly.com/1");
     	Thread.sleep(5000);
+    	Assert.fail();
     }
     
     @Test (dependsOnMethods={"testMethod2"})

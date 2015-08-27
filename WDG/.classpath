@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
+	<classpathentry kind="output" path="bin"/>
 	<classpathentry kind="src" path="src/main/java"/>
 	<classpathentry kind="src" path="src/main/resources"/>
 	<classpathentry kind="src" path="src/test/java"/>
 	<classpathentry kind="src" path="src/test/resources"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER" exported="true"/>
-	<classpathentry kind="con" path="org.springsource.ide.eclipse.gradle.classpathcontainer" exported="true"/>
-	<classpathentry kind="output" path="bin"/>
 	<classpathentry kind="lib" path="C:/Users/User/.gradle/caches/modules-2/files-2.1/org.seleniumhq.selenium/selenium-java/2.47.1/9a226750472d17418097ec32c0d38c9aaad7063/selenium-java-2.47.1.jar" exported="true"/>
 	<classpathentry sourcepath="C:/Users/User/.gradle/caches/modules-2/files-2.1/org.testng/testng/6.8/8895c842d25756b59e252823f697b263c12de7ce/testng-6.8-sources.jar" kind="lib" path="C:/Users/User/.gradle/caches/modules-2/files-2.1/org.testng/testng/6.8/ad4531b28715d39f73c49a56caf0c456cb34d48c/testng-6.8.jar" exported="true"/>
 	<classpathentry sourcepath="C:/Users/User/.gradle/caches/modules-2/files-2.1/junit/junit/4.12/a6c32b40bf3d76eca54e3c601e5d1470c86fcdfa/junit-4.12-sources.jar" kind="lib" path="C:/Users/User/.gradle/caches/modules-2/files-2.1/junit/junit/4.12/2973d150c0dc1fefe998f834810d68f278ea58ec/junit-4.12.jar" exported="true"/>

@@ -46,15 +46,22 @@ test {
 	println "--PORT: " + systemProperties['selenium-port']
 
     useTestNG {
-    	println "--RUNNING TESTS!"
-        suites 'src/test/resources/testng.xml'
+    	println "--RUNNING ALL SUITES!"
+        suites 'src/test/resources/testng/testng.xml'
+    }
+    
+    testLogging {
+        showStandardStreams = true
+        exceptionFormat "full"
+        events "started", "passed", "skipped", "failed", "standardOut", "standardError"
     }
     
     options {
-    	//listeners << 'org.webdriver.common.ScreenshotListener'
+    	listeners << 'org.webdriver.common.ScreenshotListener'
     }
     
     reports {
 		html.enabled = true
 	}
+	
 }

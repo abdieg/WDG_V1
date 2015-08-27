@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="org.webdriver.tests.SecondTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2015-08-25T21:49:15" hostname="DEscarcegaF" time="5.934">
+<testsuite name="org.webdriver.tests.SecondTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2015-08-27T14:44:22" hostname="DEscarcegaF" time="66.088">
   <properties/>
-  <testcase name="verifyPageURL" classname="org.webdriver.tests.SecondTest" time="5.024"/>
-  <testcase name="verifyPageURL2" classname="org.webdriver.tests.SecondTest" time="0.022"/>
-  <testcase name="verifyPageURL3" classname="org.webdriver.tests.SecondTest" time="0.179"/>
-  <system-out><![CDATA[SUCCESS: 'verifyPageURL' has succeded.
-SUCCESS: 'verifyPageURL2' has succeded.
-SUCCESS: 'verifyPageURL3' has succeded.
-]]></system-out>
+  <testcase name="testMethod1" classname="org.webdriver.tests.SecondTest" time="10.624"/>
+  <testcase name="testMethod2" classname="org.webdriver.tests.SecondTest" time="12.498"/>
+  <testcase name="testMethod3" classname="org.webdriver.tests.SecondTest" time="39.507"/>
+  <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
