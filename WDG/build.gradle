@@ -46,8 +46,33 @@ test {
 	println "--PORT: " + systemProperties['selenium-port']
 
     useTestNG {
-    	println "--RUNNING ALL SUITES!"
-        suites 'src/test/resources/testng/testng.xml'
+    	//Example: gradle clean build -Donly=TestSomething
+		def only = System.getProperty('only')
+        
+        if (only) {
+			println "--RUNNING INSIDE TESTS!"
+			
+			def suite1 = new XmlParser().parse(new File('src/test/resources/testng/suite1.xml'))
+			suite1.children().findAll{ it.@name != only }.each{ suite1.remove(it) }
+			
+			def suite2 = new XmlParser().parse(new File('src/test/resources/testng/suite2.xml'))
+			suite2.children().findAll{ it.@name != only }.each{ suite2.remove(it) }
+			
+			if (!suite1.children().isEmpty()) {
+				new File('src/test/resources/testng/temp.xml').withPrintWriter { new XmlNodePrinter(it).print(suite1) }
+				suites 'src/test/resources/testng/temp.xml'
+			} 
+			else if (!suite2.children().isEmpty()) {
+				new File('src/test/resources/testng/temp.xml').withPrintWriter { new XmlNodePrinter(it).print(suite2) }
+				suites 'src/test/resources/testng/temp.xml'					
+			}
+		}
+		else {
+			println "--RUNNING ALL SUITES!"
+			//-------------------------------------All Tests------------------------------------
+			suites 'src/test/resources/testng/testng.xml'
+			//----------------------------------------------------------------------------------
+		}
     }
     
     testLogging {

@@ -7,20 +7,20 @@ public class FourthTest extends WebDriverIndividual {
 	
 	@Test
     public void testMethod1() throws InterruptedException {
-		common.goToPage("http://www.atlasobscura.com");
-		Thread.sleep(5000);
+		common.goToPage("http://www.postgresql.org/");
+		Thread.sleep(2000);
     }
  
     @Test (dependsOnMethods={"testMethod1"})
     public void testMethod2() throws InterruptedException {
     	driver.get("http://www.oracle.com");
-    	Thread.sleep(5000);
+    	Thread.sleep(2000);
     }
     
     @Test (dependsOnMethods={"testMethod2"})
     public void testMethod3() throws InterruptedException {
     	driver.get("https://www.linux.com");
-    	Thread.sleep(5000);
+    	Thread.sleep(2000);
     }
   
 }
