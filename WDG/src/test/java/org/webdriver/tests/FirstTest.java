@@ -1,7 +1,5 @@
 package org.webdriver.tests;
 
-import org.junit.Assert;
-import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 import org.webdriver.common.WebDriverIndividual;
 
@@ -9,8 +7,8 @@ public class FirstTest extends WebDriverIndividual {
 	
 	@Test
     public void testMethod1() throws InterruptedException {
-		common.goToPage("http://www.hardwaremx.com");
-		common.print("STDOUT");
+		wdcommon.goToPage("http://www.hardwaremx.com");
+		wdcommon.print("STDOUT");
 		Thread.sleep(2000);
     }
  
@@ -18,12 +16,12 @@ public class FirstTest extends WebDriverIndividual {
     public void testMethod2() throws InterruptedException {
     	driver.get("https://www.grammarly.com/1");
     	Thread.sleep(2000);
-    	Assert.fail();
+//    	Assert.fail();
     }
     
     @Test (dependsOnMethods={"testMethod2"})
     public void testMethod3() throws InterruptedException {
-    	driver.get("https://rationaleemotions.wordpress.com");
+    	driver.get("http://www.microsoft.com/");
     	Thread.sleep(2000);
     }
 	

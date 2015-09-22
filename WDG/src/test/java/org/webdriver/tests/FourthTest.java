@@ -7,7 +7,7 @@ public class FourthTest extends WebDriverIndividual {
 	
 	@Test
     public void testMethod1() throws InterruptedException {
-		common.goToPage("http://www.postgresql.org/");
+		wdcommon.goToPage("http://www.postgresql.org/");
 		Thread.sleep(2000);
     }
  

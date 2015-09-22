@@ -1,7 +1,5 @@
 package org.webdriver.tests;
 
-import org.junit.Assert;
-import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 import org.webdriver.common.WebDriverIndividual;
 
@@ -9,7 +7,7 @@ public class SecondTest extends WebDriverIndividual {
 	
 	@Test
     public void testMethod1() throws InterruptedException {
-		common.goToPage("http://www.github.com");
+		wdcommon.goToPage("http://www.github.com");
 		Thread.sleep(2000);
     }
  
@@ -24,19 +22,5 @@ public class SecondTest extends WebDriverIndividual {
     	driver.get("https://www.slashdot.com");
     	Thread.sleep(2000);
     }
-	
-//	@Test
-//	public void testMethod1() throws InterruptedException {
-//		common.goToPage("http://192.168.0.19/player.htm?f=CgAggAIg");
-//		common.waitForElementToBeVisible(By.id("PF_7"));
-//		for (int i = 0; i < 40; i++) {
-//			common.waitForElementToBeVisible(By.id("PF_9"));
-//			common.patientlyFindElement(By.id("PF_14")).click();
-//			common.waitForElementToBeVisible(By.id("PF_9"));
-//			common.sleep(1000);
-//		}
-//		common.waitForElementToBeVisible(By.id("PF_9"));
-//		Assert.assertTrue(common.isTextPresent("Large Heading"));
-//	}
   
 }

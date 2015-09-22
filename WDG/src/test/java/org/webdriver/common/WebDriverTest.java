@@ -9,7 +9,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 public abstract class WebDriverTest {
 
 	public WebDriver driver;
-	public Common common;
+	public WebDriverCommon wdcommon;
 
 	/**
 	 * Works with DesiredCapabilities making use of RemoteWebDriver
@@ -41,8 +41,8 @@ public abstract class WebDriverTest {
 		driver = WebDriverThread.getSession();
 		driver.manage().timeouts().implicitlyWait(500, TimeUnit.MILLISECONDS);
 
-		common = new Common(driver);
-		common.goToPage(appHost);
+		wdcommon = new WebDriverCommon(driver);
+		wdcommon.goToPage(appHost);
 	}
 
 }

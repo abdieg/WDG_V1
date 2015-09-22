@@ -15,14 +15,14 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-//import org.stjude.srm2qa.util.TestProperties;
+
 import org.testng.Assert;
 
-public class Common {
+public class WebDriverCommon {
 	private WebDriver webDriver;
 	private PrintStream stdout = new PrintStream(new FileOutputStream(FileDescriptor.out));
 	
-	public Common(WebDriver webDriver) {
+	public WebDriverCommon(WebDriver webDriver) {
 		this.webDriver = webDriver;
 	}
 	
@@ -64,9 +64,9 @@ public class Common {
 	 * If the WebElement is not found within 30 seconds, a TimeoutException will be thrown. 
 	 * Once found thread will sleep for milliseconds specified in variable 'timeToWaitAfterElementFound'
 	 * to give some time for browser to bind event listeners to the element (if there happened to be one)
-	 * @param by The locating mechanism
-	 * @return The first matching element on the current page
-	 * @throws TimeoutException If no matching elements are found
+	 * @param	by The locating mechanism
+	 * @return	The first matching element on the current page
+	 * @throws	TimeoutException If no matching elements are found
 	 */
 	public WebElement patientlyFindElement(final By by) {
 		return patientlyFindElement(by, 30);
@@ -77,9 +77,9 @@ public class Common {
 	 * If the WebElement is not found within 30 seconds, a TimeoutException will be thrown. 
 	 * Once found thread will sleep for milliseconds specified in variable 'timeToWaitAfterElementFound'
 	 * to give some time for browser to bind event listeners to the element (if there happened to be one)
-	 * @param by The locating mechanism
-	 * @return The first matching element on the current page
-	 * @throws TimeoutException If no matching elements are found
+	 * @param	by The locating mechanism
+	 * @return	The first matching element on the current page
+	 * @throws	TimeoutException If no matching elements are found
 	 */
 	public WebElement patientlyFindElement(final By by, int waitFor) {
 		WebDriverWait wait = new WebDriverWait(webDriver, waitFor);
@@ -127,10 +127,10 @@ public class Common {
 	 * @param by
 	 * @param selectValue
 	 */
-	@SuppressWarnings("deprecation")
 	public void waitForSelectOptionsToBePopulated(By by, String selectValue) {
 		WebDriverWait wait = new WebDriverWait(webDriver, 10);
-		wait.until(ExpectedConditions.textToBePresentInElement(by, selectValue));
+//		wait.until(ExpectedConditions.textToBePresentInElement(by, selectValue));
+		wait.until(ExpectedConditions.textToBePresentInElementLocated(by, selectValue));
 	}
 	
 	/**
@@ -196,8 +196,8 @@ public class Common {
 	 * @param by
 	 */
 	public void click(By by) {
-		webDriver.findElement(by).click();
 		patientlyFindElement(By.cssSelector("BODY"));
+		webDriver.findElement(by).click();
 	}
 	
 	/**
@@ -226,6 +226,24 @@ public class Common {
 	}
 	
 	/**
+	 * Overloading method getCellValue for multiple tables. In case there are multiple tables in a screen
+	 * @param xpathToTable
+	 * @param header
+	 * @param row
+	 * @return
+	 */
+	public String getCellValue(String xpathToTable, String header, int row) {
+		int column = getHeaderColumnIndex(xpathToTable,header);
+		if(column > 0 ) {
+			return webDriver.findElement(By.xpath(xpathToTable + "[contains(., '" + header +"')]//tbody//tr[" + row +"]//td[" + column + "]")).getText();
+		}
+		else { 
+			return "";
+		}
+		
+	}
+	
+	/**
 	 * Finds total number of rows in table
 	 * @param by
 	 * @return
@@ -235,7 +253,12 @@ public class Common {
 		return rows.size();
 	}
 	
-	public void selectValueInComboBox(final String elementId, final String value) {
+	/**
+	 * Selects a value in a given combo box
+	 * @param elementId
+	 * @param value
+	 */
+	public void selectValueInComboBox(String elementId, String value) {
 		WebElement select = patientlyFindElement(By.id(elementId));
 	    List<WebElement> options = select.findElements(By.tagName("option"));
 	    for (WebElement option : options) {
@@ -249,7 +272,7 @@ public class Common {
 	 * @param elementName
 	 * @param value
 	 */
-	public void selectValueInDropDown(final String elementName, final String value) {
+	public void selectValueInDropDown(String elementName, String value) {
 		Select selectElement = new Select(patientlyFindElement(By.xpath("//select[@name='"+elementName+"']")));
 		selectElement.selectByVisibleText(value);
 	}
@@ -290,6 +313,17 @@ public class Common {
 		}
 		return alertPresent;
 	}
+	
+	/**
+	 * Method to close the alert and get the text
+	 * @return
+	 */
+	public String closeAlertAndGetItsText() {
+	    Alert alert = webDriver.switchTo().alert();
+	    String alertText = alert.getText().trim();
+	    alert.accept();
+	    return alertText;
+	}	
 	
 	/**
 	 * This method will return the class for the element
@@ -353,21 +387,10 @@ public class Common {
 	 * @param element
 	 * @param value
 	 */
-	public void clearAndSendKeysByElemenXpath(String element, String value) {
+	public void clearAndSendKeysByElementXpath(String element, String value) {
 		patientlyFindElement(By.xpath(element)).clear();
 		patientlyFindElement(By.xpath(element)).sendKeys(value);
 	}
-	
-	/**
-	 * Method to close the alert and get the text
-	 * @return
-	 */
-	public String closeAlertAndGetItsText() {
-	    Alert alert = webDriver.switchTo().alert();
-	    String alertText = alert.getText().trim();
-	    alert.accept();
-	    return alertText;
-	}	
 	
 	/**
 	 * Gets all the rows on a given table
@@ -397,50 +420,21 @@ public class Common {
 		return column;
 	}
 	
-	/**
-	 * Overloading method getCellValue for multiple tables. In case there are multiple tables in a screen
-	 * @param xpathToTable
-	 * @param header
-	 * @param row
-	 * @return
-	 */
-	public String getCellValue(String xpathToTable, String header, int row) {
-		int column = getHeaderColumnIndex(xpathToTable,header);
-		if(column > 0 ) {
-			return webDriver.findElement(By.xpath(xpathToTable + "[contains(., '" + header +"')]//tbody//tr[" + row +"]//td[" + column + "]")).getText();
-		}
-		else { 
-			return "";
-		}
-		
-	}
-
-	public boolean isCellValueInactive(String header, int row, String value) {
-		int column = 0;
-		List<WebElement>headElements = webDriver.findElements(By.xpath("//thead/tr/th"));
-		
-		for(int i=0; i< headElements.size(); i++) {
-			if(headElements.get(i).getText().equalsIgnoreCase(header)) {
-				column = i + 1;
-			}
-		}
-
-		if(column > 0 ) {
-			return patientlyFindElement(By.xpath("//table[contains(., '" + header +"')]//tbody//tr[" + row +"]//td[" + column + "]/span[@class='inactiveChoice'][contains(.,'"+ value +"')]")).isDisplayed();
-		}
-		else { 
-			return false;
-		}
-	}
-	
-	public void goToFrame(String xpath) {
-		webDriver.switchTo().frame(webDriver.findElement(By.xpath(xpath)));
-	}
-	
-	public void closePopupReturnToDefaultFrame() {
-		webDriver.switchTo().defaultContent();
-		patientlyFindElement(By.className("closebox")).click();
-	}
+//	/**
+//	 * Switch to a frame
+//	 * @param xpath
+//	 */
+//	public void goToFrame(String xpath) {
+//		webDriver.switchTo().frame(webDriver.findElement(By.xpath(xpath)));
+//	}
+//	
+//	/**
+//	 * Clicks on the closebox of the frame
+//	 */
+//	public void closePopupReturnToDefaultFrame() {
+//		webDriver.switchTo().defaultContent();
+//		patientlyFindElement(By.className("closebox")).click();
+//	}
 
 	/**
 	 * This method fires a Javascript event for certain element.
@@ -454,47 +448,47 @@ public class Common {
 		js.executeScript(event, element);
 	}
 	
-	/**
-	 * Executes filtering on both attributes. It works for 'input' and 'select' type filter.
-	 * @param firstAttribute
-	 * @param firstFilterInput
-	 * @param operator
-	 * @param secondAttribute
-	 * @param secondFilterInput
-	 */
-	public void filterByAttributes(String firstAttribute, String firstFilterInput, String operator, String secondAttribute, String secondFilterInput) {
-		new Select(patientlyFindElement(By.name("filterAttributeId"))).selectByVisibleText(firstAttribute);
-		waitForProcessToComplete();
-		
-		waitForElementToBeVisible(By.xpath("//span[@id='filterAttributeOptions']"));
-		WebElement filterAttributeOption = patientlyFindElement(By.xpath("//span[@id='filterAttributeOptions']/*"));
-		if (filterAttributeOption.getTagName().equalsIgnoreCase("input")) {
-			patientlyFindElement(By.xpath("//span[@id='filterAttributeOptions']/input")).clear();
-			patientlyFindElement(By.xpath("//span[@id='filterAttributeOptions']/input")).sendKeys(firstFilterInput);
-		}
-		else if (filterAttributeOption.getTagName().equalsIgnoreCase("select")) {
-			Select filterAttributeOptionsSelect = new Select(patientlyFindElement(By.xpath("//span[@id='filterAttributeOptions']/select")));
-			filterAttributeOptionsSelect.selectByVisibleText(firstFilterInput);
-		}
-		
-		patientlyFindElement(By.id(operator)).click();
-		
-		new Select(patientlyFindElement(By.name("secondFilterAttributeId"))).selectByVisibleText(secondAttribute);
-		waitForProcessToComplete();
-		
-		waitForElementToBeVisible(By.xpath("//span[@id='secondFilterAttributeOptions']"));
-		WebElement secondFilterAttributeOption = patientlyFindElement(By.xpath("//span[@id='secondFilterAttributeOptions']/*"));
-		if (secondFilterAttributeOption.getTagName().equalsIgnoreCase("input")) {
-			patientlyFindElement(By.xpath("//span[@id='secondFilterAttributeOptions']/input")).clear();
-			patientlyFindElement(By.xpath("//span[@id='secondFilterAttributeOptions']/input")).sendKeys(secondFilterInput);
-		}
-		else if (secondFilterAttributeOption.getTagName().equalsIgnoreCase("select")) {
-			Select filterAttributeOptionsSelect = new Select(patientlyFindElement(By.xpath("//span[@id='secondFilterAttributeOptions']/select")));
-			filterAttributeOptionsSelect.selectByVisibleText(secondFilterInput);
-		}
-		
-		patientlyFindElement(By.cssSelector("input.submitAttributeFilter")).click();
-		waitForProcessToComplete();
-	}
+//	/**
+//	 * Executes filtering on both attributes. It works for 'input' and 'select' type filter.
+//	 * @param firstAttribute
+//	 * @param firstFilterInput
+//	 * @param operator
+//	 * @param secondAttribute
+//	 * @param secondFilterInput
+//	 */
+//	public void filterByAttributes(String firstAttribute, String firstFilterInput, String operator, String secondAttribute, String secondFilterInput) {
+//		new Select(patientlyFindElement(By.name("filterAttributeId"))).selectByVisibleText(firstAttribute);
+//		waitForProcessToComplete();
+//		
+//		waitForElementToBeVisible(By.xpath("//span[@id='filterAttributeOptions']"));
+//		WebElement filterAttributeOption = patientlyFindElement(By.xpath("//span[@id='filterAttributeOptions']/*"));
+//		if (filterAttributeOption.getTagName().equalsIgnoreCase("input")) {
+//			patientlyFindElement(By.xpath("//span[@id='filterAttributeOptions']/input")).clear();
+//			patientlyFindElement(By.xpath("//span[@id='filterAttributeOptions']/input")).sendKeys(firstFilterInput);
+//		}
+//		else if (filterAttributeOption.getTagName().equalsIgnoreCase("select")) {
+//			Select filterAttributeOptionsSelect = new Select(patientlyFindElement(By.xpath("//span[@id='filterAttributeOptions']/select")));
+//			filterAttributeOptionsSelect.selectByVisibleText(firstFilterInput);
+//		}
+//		
+//		patientlyFindElement(By.id(operator)).click();
+//		
+//		new Select(patientlyFindElement(By.name("secondFilterAttributeId"))).selectByVisibleText(secondAttribute);
+//		waitForProcessToComplete();
+//		
+//		waitForElementToBeVisible(By.xpath("//span[@id='secondFilterAttributeOptions']"));
+//		WebElement secondFilterAttributeOption = patientlyFindElement(By.xpath("//span[@id='secondFilterAttributeOptions']/*"));
+//		if (secondFilterAttributeOption.getTagName().equalsIgnoreCase("input")) {
+//			patientlyFindElement(By.xpath("//span[@id='secondFilterAttributeOptions']/input")).clear();
+//			patientlyFindElement(By.xpath("//span[@id='secondFilterAttributeOptions']/input")).sendKeys(secondFilterInput);
+//		}
+//		else if (secondFilterAttributeOption.getTagName().equalsIgnoreCase("select")) {
+//			Select filterAttributeOptionsSelect = new Select(patientlyFindElement(By.xpath("//span[@id='secondFilterAttributeOptions']/select")));
+//			filterAttributeOptionsSelect.selectByVisibleText(secondFilterInput);
+//		}
+//		
+//		patientlyFindElement(By.cssSelector("input.submitAttributeFilter")).click();
+//		waitForProcessToComplete();
+//	}
 
 }
