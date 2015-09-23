@@ -2,6 +2,6 @@ package org.webdriver.common;
 
 public class Constant {
 	
-//	public static final String something = something;
+	public static final String dateFormat = "MM/dd/yyyy";
 
 }

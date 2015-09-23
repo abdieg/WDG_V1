@@ -41,9 +41,16 @@ test {
 	
 	println "--CHECKING GRADLE!"
 	println "--URL: " + systemProperties['app-host']
-	println "--BROWSER: " + systemProperties['browser']
 	println "--MACHINE: " + systemProperties['selenium-host']
 	println "--PORT: " + systemProperties['selenium-port']
+	
+	//Example: gradle clean build -Dnav=chrome
+	def nav = System.getProperty('nav')
+	if (nav == null) {
+		nav = "firefox"
+	}
+	systemProperty "browser", nav
+	println "--BROWSER: " + nav
 
     useTestNG {
     	//Example: gradle clean build -Donly=TestSomething

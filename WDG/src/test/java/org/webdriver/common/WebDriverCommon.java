@@ -11,11 +11,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import org.testng.Assert;
 
 public class WebDriverCommon {
@@ -43,7 +43,7 @@ public class WebDriverCommon {
 	}
 	
 //	/**
-//	 * Will login using test credentials
+//	 * Login using test credentials
 //	 * @param webDriver
 //	 * @throws Exception
 //	 */
@@ -145,6 +145,47 @@ public class WebDriverCommon {
 	}
 	
 	/**
+	 * Find if text is present on current web page
+	 * @param text
+	 * @return
+	 */
+	public boolean isTextPresent(String text) {
+		WebElement bodyTag = patientlyFindElement(By.tagName("body"));
+		if(bodyTag.getText().contains(text)) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	
+	/**
+	 * Find if link is present con the current page
+	 * @param textLink
+	 * @return
+	 */
+	 public boolean isLinkPresent(String textLink) {
+		boolean linkPresent = false;	
+		if(webDriver.findElement(By.linkText(textLink)).isDisplayed()) {
+			linkPresent= true;
+		}
+		return linkPresent;
+	}
+	 
+	/**
+	 * Check for element existence in the page
+	 * @param by
+	 * @return
+	 */
+	public boolean isElementPresent(By by) {
+		boolean elementPresent = false;
+		if(webDriver.findElements(by).size() != 0) {
+			elementPresent = true;
+		} 
+		return elementPresent;
+	}
+	
+	/**
 	 * Waits for spinner to finish
 	 */
 	public void waitForProcessToComplete() {
@@ -201,18 +242,31 @@ public class WebDriverCommon {
 	}
 	
 	/**
-	 * Find if text is present on current web page
-	 * @param text
+	 * Gets all the rows on a given table
+	 * @param by
 	 * @return
 	 */
-	public boolean isTextPresent(String text) {
-		WebElement bodyTag = patientlyFindElement(By.tagName("body"));
-		if(bodyTag.getText().contains(text)) {
-			return true;
+	public List<WebElement> getTableRows(By by) {
+		return webDriver.findElements(by);
+	}
+	
+	/**
+	 * Method to return column index of a header title
+	 * @param xpath
+	 * @param header
+	 * @return
+	 */
+	public int getHeaderColumnIndex(String xpath, String header) {
+		int column = 0;
+		List<WebElement>headElements = webDriver.findElements(By.xpath(xpath + "//thead/tr/th"));
+		for(int i=0; i< headElements.size(); i++) {
+			stdout.println("Table Headers: " + headElements.get(i).getText());
+			if(headElements.get(i).getText().trim().equalsIgnoreCase(header.trim())) {
+				column = i + 1;
+				break;
+			}
 		}
-		else {
-			return false;
-		}
+		return column;
 	}
 	
 	/**
@@ -284,19 +338,6 @@ public class WebDriverCommon {
 	public void print(String string) {
 		stdout.println(string);
 	}
-	
-	/**
-	 * Find if link is present con the current page
-	 * @param textLink
-	 * @return
-	 */
-	 public boolean isLinkPresent(String textLink) {
-		boolean linkPresent = false;	
-		if(webDriver.findElement(By.linkText(textLink)).isDisplayed()) {
-			linkPresent= true;
-		}
-		return linkPresent;
-	}	
 		
 	/**
 	 * This method is to close the Browser Generated Alerts
@@ -332,19 +373,6 @@ public class WebDriverCommon {
 	 */
 	public String getElementClassByXPath(String elementXPath) {
 		return patientlyFindElement(By.xpath(elementXPath)).getAttribute("class");
-	}
-	
-	/**
-	 * Check for element existence in the page
-	 * @param by
-	 * @return
-	 */
-	public boolean isElementPresent(By by) {
-		boolean elementPresent = false;
-		if(webDriver.findElements(by).size() != 0) {
-			elementPresent = true;
-		} 
-		return elementPresent;
 	}
 	
 	/**
@@ -390,34 +418,6 @@ public class WebDriverCommon {
 	public void clearAndSendKeysByElementXpath(String element, String value) {
 		patientlyFindElement(By.xpath(element)).clear();
 		patientlyFindElement(By.xpath(element)).sendKeys(value);
-	}
-	
-	/**
-	 * Gets all the rows on a given table
-	 * @param by
-	 * @return
-	 */
-	public List<WebElement> getTableRows(By by) {
-		return webDriver.findElements(by);
-	}
-	
-	/**
-	 * Method to return column index of a header title
-	 * @param xpath
-	 * @param header
-	 * @return
-	 */
-	public int getHeaderColumnIndex(String xpath, String header) {
-		int column = 0;
-		List<WebElement>headElements = webDriver.findElements(By.xpath(xpath + "//thead/tr/th"));
-		for(int i=0; i< headElements.size(); i++) {
-			//stdout.println("Table Headers: "+headElements.get(i).getText());
-			if(headElements.get(i).getText().trim().equalsIgnoreCase(header.trim())) {
-				column = i + 1;
-				break;
-			}
-		}
-		return column;
 	}
 	
 //	/**
@@ -490,5 +490,20 @@ public class WebDriverCommon {
 //		patientlyFindElement(By.cssSelector("input.submitAttributeFilter")).click();
 //		waitForProcessToComplete();
 //	}
+	
+	/**
+	 * Executes a drag and drop
+	 * @param from
+	 * @param to
+	 * @throws InterruptedException
+	 */
+	public void dragAndDrop(By from, By to) throws InterruptedException {
+		Actions act = new Actions(webDriver);
+		WebElement fromThis = webDriver.findElement(from);
+		WebElement toThis = webDriver.findElement(to);
+		act.clickAndHold(fromThis).moveToElement(toThis).perform();
+		Thread.sleep(50);
+		act.release(toThis).perform();
+	}
 
 }

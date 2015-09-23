@@ -7,7 +7,7 @@ public class FirstTest extends WebDriverIndividual {
 	
 	@Test
     public void testMethod1() throws InterruptedException {
-		wdcommon.goToPage("http://www.hardwaremx.com");
+		wdcommon.goToPage("https://mariadb.org/");
 		wdcommon.print("STDOUT");
 		Thread.sleep(2000);
     }

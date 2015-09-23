@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="org.webdriver.tests.FirstTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2015-09-21T22:23:50" hostname="DEscarcegaF" time="40.537">
-  <properties/>
-  <testcase name="testMethod1" classname="org.webdriver.tests.FirstTest" time="23.195"/>
-  <testcase name="testMethod2" classname="org.webdriver.tests.FirstTest" time="6.677"/>
-  <testcase name="testMethod3" classname="org.webdriver.tests.FirstTest" time="6.228"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
