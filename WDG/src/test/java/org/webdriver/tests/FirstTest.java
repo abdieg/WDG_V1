@@ -1,15 +1,21 @@
 package org.webdriver.tests;
 
+import java.sql.SQLException;
+
 import org.testng.annotations.Test;
 import org.webdriver.common.WebDriverIndividual;
 
 public class FirstTest extends WebDriverIndividual {
 	
 	@Test
-    public void testMethod1() throws InterruptedException {
-		wdcommon.goToPage("https://mariadb.org/");
-		wdcommon.print("STDOUT");
+    public void testMethod1() throws InterruptedException, ClassNotFoundException, SQLException {
+		app.goToPage("https://mariadb.org/");
+		app.print("STDOUT");
+		dbutil.nose();
 		Thread.sleep(2000);
+		app.goToLoginPage();
+		app.goToPage("http://www.google.com/");
+		dbutil.nel();
     }
  
     @Test (dependsOnMethods={"testMethod1"})

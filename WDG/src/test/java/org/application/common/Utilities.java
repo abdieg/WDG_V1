@@ -1,4 +1,4 @@
-package org.webdriver.common;
+package org.application.common;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;

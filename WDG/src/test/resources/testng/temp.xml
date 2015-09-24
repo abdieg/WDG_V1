@@ -1,0 +1,7 @@
+<suite name="suite1" verbose="1" parallel="tests" thread-count="3">
+  <test name="FirstTest">
+    <classes>
+      <class name="org.webdriver.tests.FirstTest"/>
+    </classes>
+  </test>
+</suite>

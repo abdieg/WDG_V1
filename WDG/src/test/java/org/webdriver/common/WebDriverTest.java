@@ -3,13 +3,19 @@ package org.webdriver.common;
 import java.net.MalformedURLException;
 import java.util.concurrent.TimeUnit;
 
+import org.application.common.ApplicationCommon;
+import org.application.common.ApplicationDatabase;
+import org.application.common.Utilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 public abstract class WebDriverTest {
 
 	public WebDriver driver;
-	public WebDriverCommon wdcommon;
+	public ApplicationCommon app;
+	public Properties properties;
+	public ApplicationDatabase dbutil;
+	public Utilities utilities;
 
 	/**
 	 * Works with DesiredCapabilities making use of RemoteWebDriver
@@ -19,7 +25,8 @@ public abstract class WebDriverTest {
 	 * @param appHost
 	 * @throws MalformedURLException
 	 */
-	public void setUpProperties(String seleniumHostAddress, int seleniumPort, String browser, String appHost, String browserFirefox, String browserChrome) throws MalformedURLException {
+	public void setUpProperties(String seleniumHostAddress, int seleniumPort, String browser, String appHost, String browserFirefox, String browserChrome, 
+								String db_driver, String db_url, String db_user, String db_password) throws MalformedURLException {
 		DesiredCapabilities desiredCapabilities = null;
 		if (browser.contains("firefox")) {
 			desiredCapabilities = DesiredCapabilities.firefox();
@@ -45,9 +52,20 @@ public abstract class WebDriverTest {
 		
 		driver = WebDriverThread.getSession();
 		driver.manage().timeouts().implicitlyWait(500, TimeUnit.MILLISECONDS);
+		
+		properties = new Properties();
+		properties.setSeleniumHostAddress(seleniumHostAddress);
+		properties.setSeleniumPort(seleniumPort);
+		properties.setAppPath(appHost);
+		properties.setDbDriver(db_driver);
+		properties.setDbUrl(db_url);
+		properties.setDbUserName(db_user);
+		properties.setDbPassword(db_password);
+		
+		dbutil = new ApplicationDatabase(properties);
 
-		wdcommon = new WebDriverCommon(driver);
-		wdcommon.goToPage(appHost);
+		app = new ApplicationCommon(driver);
+		app.goToPage(appHost);
 	}
 
 }

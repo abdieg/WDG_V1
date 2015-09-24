@@ -7,7 +7,7 @@ public class ThirdTest extends WebDriverIndividual {
 	
 	@Test
     public void testMethod1() throws InterruptedException {
-		wdcommon.goToPage("https://www.medium.com");
+		app.goToPage("https://www.medium.com");
 		Thread.sleep(2000);
     }
  

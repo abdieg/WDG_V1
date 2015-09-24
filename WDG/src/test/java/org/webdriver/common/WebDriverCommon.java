@@ -19,6 +19,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 public class WebDriverCommon {
+	
 	private WebDriver webDriver;
 	private PrintStream stdout = new PrintStream(new FileOutputStream(FileDescriptor.out));
 	
@@ -41,23 +42,6 @@ public class WebDriverCommon {
 	public void goToPage(String url) {
 		webDriver.get(url);
 	}
-	
-//	/**
-//	 * Login using test credentials
-//	 * @param webDriver
-//	 * @throws Exception
-//	 */
-//	public void login(WebDriver webDriver) throws Exception {
-//		webDriver.manage().window().maximize();
-//		WebElement userNameElement = patientlyFindElement(By.xpath("//input[@id='username']"));
-//		userNameElement.sendKeys(userName);
-//		
-//		WebElement passwordElement = patientlyFindElement(By.xpath("//input[@id='password']"));
-//		passwordElement.sendKeys(password);
-//		
-//		patientlyFindElement(By.name("submit")).click();
-//		patientlyFindElement(By.cssSelector("BODY"));
-//	}
 	
 	/**
 	 * Will try to find the WebElement within 30 seconds.
@@ -129,7 +113,6 @@ public class WebDriverCommon {
 	 */
 	public void waitForSelectOptionsToBePopulated(By by, String selectValue) {
 		WebDriverWait wait = new WebDriverWait(webDriver, 10);
-//		wait.until(ExpectedConditions.textToBePresentInElement(by, selectValue));
 		wait.until(ExpectedConditions.textToBePresentInElementLocated(by, selectValue));
 	}
 	
@@ -420,21 +403,7 @@ public class WebDriverCommon {
 		patientlyFindElement(By.xpath(element)).sendKeys(value);
 	}
 	
-//	/**
-//	 * Switch to a frame
-//	 * @param xpath
-//	 */
-//	public void goToFrame(String xpath) {
-//		webDriver.switchTo().frame(webDriver.findElement(By.xpath(xpath)));
-//	}
-//	
-//	/**
-//	 * Clicks on the closebox of the frame
-//	 */
-//	public void closePopupReturnToDefaultFrame() {
-//		webDriver.switchTo().defaultContent();
-//		patientlyFindElement(By.className("closebox")).click();
-//	}
+
 
 	/**
 	 * This method fires a Javascript event for certain element.
@@ -447,49 +416,6 @@ public class WebDriverCommon {
 		JavascriptExecutor js = (JavascriptExecutor) webDriver;
 		js.executeScript(event, element);
 	}
-	
-//	/**
-//	 * Executes filtering on both attributes. It works for 'input' and 'select' type filter.
-//	 * @param firstAttribute
-//	 * @param firstFilterInput
-//	 * @param operator
-//	 * @param secondAttribute
-//	 * @param secondFilterInput
-//	 */
-//	public void filterByAttributes(String firstAttribute, String firstFilterInput, String operator, String secondAttribute, String secondFilterInput) {
-//		new Select(patientlyFindElement(By.name("filterAttributeId"))).selectByVisibleText(firstAttribute);
-//		waitForProcessToComplete();
-//		
-//		waitForElementToBeVisible(By.xpath("//span[@id='filterAttributeOptions']"));
-//		WebElement filterAttributeOption = patientlyFindElement(By.xpath("//span[@id='filterAttributeOptions']/*"));
-//		if (filterAttributeOption.getTagName().equalsIgnoreCase("input")) {
-//			patientlyFindElement(By.xpath("//span[@id='filterAttributeOptions']/input")).clear();
-//			patientlyFindElement(By.xpath("//span[@id='filterAttributeOptions']/input")).sendKeys(firstFilterInput);
-//		}
-//		else if (filterAttributeOption.getTagName().equalsIgnoreCase("select")) {
-//			Select filterAttributeOptionsSelect = new Select(patientlyFindElement(By.xpath("//span[@id='filterAttributeOptions']/select")));
-//			filterAttributeOptionsSelect.selectByVisibleText(firstFilterInput);
-//		}
-//		
-//		patientlyFindElement(By.id(operator)).click();
-//		
-//		new Select(patientlyFindElement(By.name("secondFilterAttributeId"))).selectByVisibleText(secondAttribute);
-//		waitForProcessToComplete();
-//		
-//		waitForElementToBeVisible(By.xpath("//span[@id='secondFilterAttributeOptions']"));
-//		WebElement secondFilterAttributeOption = patientlyFindElement(By.xpath("//span[@id='secondFilterAttributeOptions']/*"));
-//		if (secondFilterAttributeOption.getTagName().equalsIgnoreCase("input")) {
-//			patientlyFindElement(By.xpath("//span[@id='secondFilterAttributeOptions']/input")).clear();
-//			patientlyFindElement(By.xpath("//span[@id='secondFilterAttributeOptions']/input")).sendKeys(secondFilterInput);
-//		}
-//		else if (secondFilterAttributeOption.getTagName().equalsIgnoreCase("select")) {
-//			Select filterAttributeOptionsSelect = new Select(patientlyFindElement(By.xpath("//span[@id='secondFilterAttributeOptions']/select")));
-//			filterAttributeOptionsSelect.selectByVisibleText(secondFilterInput);
-//		}
-//		
-//		patientlyFindElement(By.cssSelector("input.submitAttributeFilter")).click();
-//		waitForProcessToComplete();
-//	}
 	
 	/**
 	 * Executes a drag and drop
@@ -505,5 +431,4 @@ public class WebDriverCommon {
 		Thread.sleep(50);
 		act.release(toThis).perform();
 	}
-
 }

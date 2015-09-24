@@ -18,10 +18,13 @@ public class WebDriverIndividual extends WebDriverTest {
 	 * Gets the parameters and gives them to WebDriverTest
 	 */
 	@BeforeClass
-	@Parameters({"selenium-host", "selenium-port", "app-host", "browser-Firefox", "browser-Chrome"})
-	public void setUp(String seleniumHostAddress, int seleniumPort, String appHost, String browserFirefox, String browserChrome) throws MalformedURLException {
+	@Parameters({"selenium-host", "selenium-port", "app-host", "browser-Firefox", "browser-Chrome", 
+				 "db-driver", "db-url", "db-user", "db-password"})
+	public void setUp(String seleniumHostAddress, int seleniumPort, String appHost, String browserFirefox, String browserChrome, 
+					  String db_driver, String db_url, String db_user, String db_password) throws MalformedURLException {
 		String browser = System.getProperty("browser");
-		setUpProperties(seleniumHostAddress, seleniumPort, browser, appHost, browserFirefox, browserChrome);
+		setUpProperties(seleniumHostAddress, seleniumPort, browser, appHost, browserFirefox, browserChrome, 
+						db_driver, db_url, db_user, db_password);
 		driver.get(appHost);
 	}
 	

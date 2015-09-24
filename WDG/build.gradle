@@ -23,9 +23,17 @@ repositories {
 dependencies {
 	testCompile 'org.seleniumhq.selenium:selenium-java:2.47.1'
 	testCompile 'org.testng:testng:6.8'
+	testCompile 'org.slf4j:slf4j-simple:1.7.5'
 	
     compile group: 'commons-collections', name: 'commons-collections', version: '3.2'
     testCompile group: 'junit', name: 'junit', version: '4.+'
+    
+    //Dependencies for Maria DB
+    compile ('org.mariadb.jdbc:mariadb-java-client:1.2.2') {
+        exclude group: 'net.java.dev.jna'
+    }
+    compile 'net.java.dev.jna:jna:4.1.0'
+    compile 'net.java.dev.jna:jna-platform:4.1.0'
 }
 
 uploadArchives {
@@ -43,6 +51,10 @@ test {
 	println "--URL: " + systemProperties['app-host']
 	println "--MACHINE: " + systemProperties['selenium-host']
 	println "--PORT: " + systemProperties['selenium-port']
+	println "--DBDRIVER: " + systemProperties['db-driver']
+	println "--DBURL: " + systemProperties['db-url']
+	println "--DBUSER: " + systemProperties['db-user']
+	println "--DBPASS: " + systemProperties['db-password']
 	
 	//Example: gradle clean build -Dnav=chrome
 	def nav = System.getProperty('nav')
@@ -57,7 +69,7 @@ test {
 		def only = System.getProperty('only')
         
         if (only) {
-			println "--RUNNING INSIDE TESTS!"
+			println "--RUNNING TEST INDIVIDUALLY!"
 			
 			def suite1 = new XmlParser().parse(new File('src/test/resources/testng/suite1.xml'))
 			suite1.children().findAll{ it.@name != only }.each{ suite1.remove(it) }

@@ -7,7 +7,7 @@ public class SecondTest extends WebDriverIndividual {
 	
 	@Test
     public void testMethod1() throws InterruptedException {
-		wdcommon.goToPage("http://www.github.com");
+		app.goToPage("http://www.github.com");
 		Thread.sleep(2000);
     }
  
